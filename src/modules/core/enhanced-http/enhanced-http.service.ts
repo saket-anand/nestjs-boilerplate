@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-import { HttpLoggerService } from '../http-logs/http-logger.service';
 import { firstValueFrom } from 'rxjs';
 import { AxiosInstance, AxiosResponse } from 'axios';
 import { map } from 'rxjs/operators';
@@ -11,14 +10,11 @@ import * as JSONbig from 'json-bigint';
 export class EnhancedHttpService {
   constructor(
     private readonly httpService: HttpService,
-    private readonly httpLoggerService: HttpLoggerService,
     private readonly logger: Logger,
   ) {
     const axios: AxiosInstance = this.httpService.axiosRef;
     // axios.defaults.httpAgent = new http.Agent({ family: 4 });
     // axios.defaults.httpsAgent = new https.Agent({ family: 4 });
-
-    let logData;
 
     // axios.interceptors.request.use(
     //   async (config) => {

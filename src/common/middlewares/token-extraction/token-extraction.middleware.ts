@@ -10,21 +10,7 @@ export class TokenExtractionMiddleware implements NestMiddleware {
     next();
   }
 
-  private shouldSkipTokenExtraction(req: Request): boolean {
-    // Define the logic to determine whether the route should be skipped
-    const skipRoutes = [
-      '/api/v1/auth/generate-otp',
-      '/api/v1/auth/submit-otp',
-    ];
-    const skipRouteStartsWith = ['/link'];
-    if (skipRoutes.includes(req.originalUrl)) {
-      return true;
-    }
-    for (const prefix of skipRouteStartsWith) {
-      if (req.originalUrl.startsWith(prefix)) {
-        return true;
-      }
-    }
+  private shouldSkipTokenExtraction(_req: Request): boolean {
     return false;
   }
 

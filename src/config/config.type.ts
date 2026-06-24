@@ -8,8 +8,7 @@ export type AppConfig = {
   backendDomain: string;
   port: number;
   apiPrefix: string;
-  fallbackLanguage: string;
-  headerLanguage: string;
+  jwtAuthSecret?: string;
 };
 
 export type QueueConfig = {
@@ -17,17 +16,6 @@ export type QueueConfig = {
   accessKeyId: string;
   secretAccessKey: string;
   region: string;
-};
-
-export type AppleConfig = {
-  appAudience: string[];
-};
-
-export type AuthConfig = {
-  secret?: string;
-  expires?: string;
-  refreshSecret?: string;
-  refreshExpires?: string;
 };
 
 export type DatabaseConfig = {
@@ -64,36 +52,9 @@ export type FileConfig = {
   maxFileSize: number;
 };
 
-export type GoogleConfig = {
-  clientId?: string;
-  clientSecret?: string;
-};
-
-export type MailConfig = {
-  port: number;
-  host?: string;
-  user?: string;
-  password?: string;
-  defaultEmail?: string;
-  defaultName?: string;
-  ignoreTLS: boolean;
-  secure: boolean;
-  requireTLS: boolean;
-};
-
-export type TwitterConfig = {
-  consumerKey?: string;
-  consumerSecret?: string;
-};
-
 export type AllConfigType = {
   app: AppConfig;
-  apple: AppleConfig;
-  auth: AuthConfig;
   database: DatabaseConfig;
   cache: CacheConfig;
   file: FileConfig;
-  google: GoogleConfig;
-  mail: MailConfig;
-  twitter: TwitterConfig;
 };

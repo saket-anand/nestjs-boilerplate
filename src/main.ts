@@ -1,4 +1,3 @@
-require('newrelic');
 import { NestFactory, Reflector } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { useContainer } from 'class-validator';
@@ -31,7 +30,7 @@ async function bootstrap() {
   app.setGlobalPrefix(
     configService.getOrThrow('app.apiPrefix', { infer: true }),
     {
-      exclude: ['/', '/link/:shortLink', '/health'],
+      exclude: ['/', '/health'],
     },
   );
   // app.use(new TokenExtractionMiddleware());

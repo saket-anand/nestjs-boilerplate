@@ -33,9 +33,6 @@ class EnvironmentVariablesValidator {
   @IsString()
   AWS_S3_REGION: string;
 
-  @ValidateIf((envValues) => envValues.FILE_DRIVER === FileDriver.S3)
-  @IsString()
-  CREATORS_S3_BUCKET_NAME: string;
 }
 
 export default registerAs<FileConfig>('file', () => {
@@ -49,6 +46,5 @@ export default registerAs<FileConfig>('file', () => {
     awsDefaultS3Url: process.env.AWS_DEFAULT_S3_URL,
     awsS3Region: process.env.AWS_S3_REGION,
     maxFileSize: 15242880, // 15mb
-    creatorsS3BucketName: process.env.CREATORS_S3_BUCKET_NAME,
   };
 });

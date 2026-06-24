@@ -1,18 +1,14 @@
 import { Logger, Module } from '@nestjs/common';
 import { SharedModule } from './shared/shared.module';
-import { HttpLogModule } from './http-logs/http-log.module';
 import { EnhancedHttpModule } from './enhanced-http/enhanced-http.module';
 import { RequestContextModule } from '@app/modules/core/request-context/request-context.module';
-import { FileHandlerModule } from './file-handler/file-handler.module';
 // import { SqsModule } from './sqs/sqs.module';
 
 @Module({
   imports: [
     SharedModule,
-    HttpLogModule,
     EnhancedHttpModule,
     RequestContextModule,
-    FileHandlerModule,
     // SqsModule,
   ],
   providers: [Logger],
@@ -20,7 +16,6 @@ import { FileHandlerModule } from './file-handler/file-handler.module';
     Logger,
     EnhancedHttpModule,
     RequestContextModule,
-    HttpLogModule,
     // SqsModule,
   ],
 })

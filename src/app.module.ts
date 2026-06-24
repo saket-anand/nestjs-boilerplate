@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import appConfig from '@app/config/app.config';
-// import fileConfig from '@app/config/file.config';
 import databaseConfig from '@app/config/database.config';
 import { SqlConfigModule } from '@app/config/sql-config/sql-config.module';
 import { ApiModule } from '@api/api.module';
@@ -32,19 +31,10 @@ import cacheConfig from '@app/config/cache.config';
     CoreModule,
     ApiModule,
     RouterModule.register([
-      // {
-      //   path: '/link',
-      //   module: RedirectorModule,
-      // },
       {
         path: '/',
         module: ApiModule,
-        children: [
-          // {
-          //   path: '/',
-          //   module: ShortLinkModule,
-          // },
-        ],
+        children: [],
       },
     ]),
   ],
